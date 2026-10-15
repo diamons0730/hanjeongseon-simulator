@@ -1,0 +1,8 @@
+{
+  "appId": "com.hanjeongseon.simulator",
+  "appName": "한정선 시뮬레이터",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

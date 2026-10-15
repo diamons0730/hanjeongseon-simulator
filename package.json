@@ -1,0 +1,22 @@
+{
+  "name": "hanjeongseon-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A 2D mochi shop game with ingredient purchasing, drag crafting, PWA and Capacitor support",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/build.mjs",
+    "cap:sync": "npm run build && cap sync android",
+    "android:add": "cap add android",
+    "android:open": "cap open android",
+    "android:apk": "npm run cap:sync && cd android && gradlew.bat assembleDebug"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.0.0"
+  }
+}

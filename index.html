@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f4e8d5">
+    <meta name="description" content="따뜻한 2D 매장에서 손님을 맞이하고 한정선 찹쌀떡을 만드는 경영 시뮬레이터">
+    <title>한정선 시뮬레이터 · 작은 떡집 이야기</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main id="game-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="한정선 시뮬레이터 홈">
+          <span class="brand-mark">한</span>
+          <span><small>작은 떡집 이야기</small><strong>한정선</strong></span>
+        </a>
+        <div class="day-chip"><span id="day-label">DAY 01</span><b id="phase-label">오픈 준비</b></div>
+        <div class="wallet-strip">
+          <span>보유금 <strong>₩ <span id="money-label">0</span></strong></span>
+          <span>평판 <strong>✦ <span id="reputation-label">80</span></strong></span>
+          <button class="help-button" id="help-button" type="button">도움말</button>
+          <button class="install-button" id="install-button" type="button" hidden>앱 설치</button>
+        </div>
+      </header>
+
+      <div class="game-layout">
+        <section class="shop-card" aria-label="한정선 매장">
+          <div class="scene-title">
+            <div><span class="eyebrow">HANJEONGSEON · SHOP LIFE</span><h1>오늘도 정성스럽게</h1></div>
+            <span class="open-sign" id="open-sign">준비 중</span>
+          </div>
+          <div class="shop-scene" id="shop-scene">
+            <div class="sunlight"></div>
+            <div class="wall-shelf shelf-left"><i>✿</i><i>◉</i><i>✿</i></div>
+            <div class="wall-shelf shelf-right"><i>◉</i><i>✿</i><i>◉</i></div>
+            <div class="store-sign">한정선 <span>손끝으로 빚는 작은 행복</span></div>
+            <div class="queue-area">
+              <div class="customer-spot active-spot" id="active-customer"></div>
+              <div class="waiting-line" id="waiting-line"></div>
+            </div>
+            <div class="counter-art">
+              <div class="counter-top"><span class="counter-note" id="counter-note">오늘도 따뜻한 떡을 준비해요</span>
+                <div class="dessert-display"><i>●</i><i>●</i><i>●</i><i>●</i></div>
+                <div class="pos-art">POS<br><b>₩</b></div>
+              </div>
+              <div class="counter-front"><span>한정선</span></div>
+            </div>
+            <div class="floor-line"></div>
+            <div class="scene-sparkle sparkle-one">✦</div><div class="scene-sparkle sparkle-two">✧</div>
+          </div>
+          <div class="scene-footer">
+            <span><i class="status-dot" id="status-dot"></i><span id="scene-status">영업 준비 중</span></span>
+            <span id="queue-count">대기 0명</span>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="order-card" id="order-card" aria-live="polite"></section>
+          <section class="supply-card" id="supply-card" aria-label="재료 가게"></section>
+          <section class="workbench-card" id="workbench-card" aria-label="찹쌀떡 제조 작업대"></section>
+          <section class="action-card" id="action-card"></section>
+          <section class="today-card">
+            <div class="section-heading"><span>오늘의 기록</span><span id="today-count">0 / 0명</span></div>
+            <div class="today-stats">
+              <span>매출 <strong id="sales-label">₩ 0</strong></span>
+              <span>응대 <strong id="served-label">0명</strong></span>
+              <span>이탈 <strong id="left-label">0명</strong></span>
+            </div>
+            <div class="day-progress"><span id="day-progress"></span></div>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="bottom-note">
+        <span>정성을 담아, 한 분 한 분</span>
+        <span class="key-hint">필요한 작업을 눌러 오늘의 영업을 진행하세요</span>
+      </footer>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+      <section class="modal-backdrop" id="interaction-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <article class="modal-card">
+          <button class="modal-close" id="modal-close" type="button" aria-label="닫기">×</button>
+          <header class="modal-header">
+            <span class="eyebrow" id="modal-kicker">HANJEONGSEON · SHOP LIFE</span>
+            <h2 id="modal-title">오늘의 작업</h2>
+            <p class="modal-description" id="modal-description"></p>
+          </header>
+          <div class="modal-content" id="modal-content"></div>
+          <footer class="modal-actions" id="modal-actions"></footer>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
